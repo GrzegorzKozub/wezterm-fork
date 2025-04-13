@@ -32,6 +32,8 @@ for the backdrop effect to work.  For best results with both `"Mica"` and
 See also [macos_window_background_blur](macos_window_background_blur.md) for
 a similar effect on macOS.
 
+See [win32_window_appearance](win32_window_appearance.md) how to override the app appearance set in Windows.
+
 ## Acrylic
 
 ```lua
