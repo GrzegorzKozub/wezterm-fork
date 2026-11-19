@@ -1100,6 +1100,11 @@ def generate_actions(namer, jobber, trigger, is_continuous, is_tag=False):
 
         trigger_paths = "- " + "\n      - ".join(yv(p) for p in sorted(trigger_paths))
         trigger_with_paths = trigger.replace("@PATHS@", trigger_paths)
+        # Fork-only: also build the personal branch on Windows
+        if is_continuous and not is_tag and "win" in name:
+            trigger_with_paths = trigger_with_paths.replace(
+                "      - main\n", "      - main\n      - personal\n"
+            )
 
         with open(file_name, "w") as f:
             f.write(
